@@ -1,0 +1,327 @@
+/* ==================================================
+   CSS Exercise 1: External CSS Setup
+   ================================================== */
+
+
+/* Event Gallery Image Styles */
+.eventImage {
+    border: 3px solid black;
+    width: 200px;
+    height: 150px;
+}
+
+
+
+
+/* ==================================================
+   CSS Exercise 2: CSS Syntax Demonstration
+   ================================================== */
+
+
+/* Selector : p
+   Property : font-size
+   Value    : 18px
+*/
+p {
+    font-size: 18px;
+
+    /* Typography - Line Height */
+    line-height: 1.8;
+}
+
+
+
+/* ==================================================
+   CSS Exercise 3: Universal Selector
+   ================================================== */
+
+/* Universal Selector */
+* {
+
+    /* Exercise 5: Typography - Font Family */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Element Selector */
+h2 {
+
+    /* Colors & Backgrounds - HEX Color */
+    color: #1E3A8A;
+
+    /* Colors & Backgrounds - Linear Gradient */
+    background: linear-gradient(
+        to right,
+        #cce5ff,
+        #99ccff
+    );
+
+    padding: 10px;
+
+    /*Exercise 5: Typography - Heading Font Size */
+    font-size: 24px;
+
+    /*Exercise 5: Typography - Font Weight */
+    font-weight: 600;
+}
+
+/* ID Selector */
+#WelcomeBanner {
+
+    background-color: rgba(0, 123, 255, 0.8);
+
+    text-align: center;
+
+    /* Typography - Font Size */
+    font-size: 20px;
+
+    /* Typography - Font Weight */
+    font-weight: 600;
+
+    /* Typography - Banner Padding */
+    padding: 15px;
+
+    border: 2px solid navy;
+    margin: 15px;
+
+    /* Exercise 10: Responsive Unit */
+    width: 90vw;
+}
+
+/* Class Selector */
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+    padding: 5px;
+}
+
+/* Grouping Selector */
+h2, p {
+
+    /* Exercise 5: Typography - Letter Spacing */
+    letter-spacing: 1px;
+}
+
+
+
+/* ==================================================
+   CSS Exercise 4: Colors and Backgrounds
+   ================================================== */
+
+/* Text Color Example */
+h1 {
+    color: #1E3A8A;
+}
+
+
+body {
+
+    /*Fallback Background Color */
+    background-color: #f0f8ff;
+
+    /*Background Image */
+    background-image: url("images/background2.jpg");
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Special Offer Text */
+.specialOffer {
+    color: red;
+    font-weight: bold;
+}
+
+
+
+/* ==================================================
+   CSS Exercise 5: Typography
+   ================================================== */
+
+  /* Implemented:
+   - Font Family → Universal Selector (*)
+   - Font Size → h2
+   - Font Weight → h2 */                            
+
+
+/* Typography - Font Style */
+footer {
+    font-style: italic;
+}
+
+/* Typography - Text Transform */
+nav a {
+    text-transform: uppercase;
+}
+
+
+
+   /* ==========================================
+   CSS Exercise 6: Link and List Styling
+   ========================================== */
+
+/* Link Styling */
+nav a {
+    text-decoration: none;
+    color: #1565c0;
+
+    /* Navigation Link Spacing */
+    margin-right: 20px;
+}
+
+/* Link Styling - Hover */
+nav a:hover {
+    color: orange;
+}
+
+/* Link Styling - Active */
+nav a:active {
+    color: red;
+}
+
+/* Link Styling - Visited */
+nav a:visited {
+    color: purple;
+}
+
+/* Navigation menu in this project does not use ul/li */
+/* Demonstration of bullet removal for nav menus */
+nav ul {
+    list-style-type: none;
+}
+
+
+
+/* ==========================================
+   CSS Exercise 7: Table Styling
+   ========================================== */
+
+/* Table Styling */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Table Styling - Borders */
+table, th, td {
+    border: 1px solid black;
+}
+
+/* Table Styling - Cell Formatting */
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Table Styling - Header Background */
+th {
+    background-color: #1565c0;
+    color: white;
+}
+
+/* Table Styling - Zebra Striping */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+
+/* ==========================================
+   CSS Exercise 8: Box Model & Layout Control
+   ========================================== */
+
+/* Box Model - Section Layout */
+section {
+    border: 1px solid #d6e4f0;
+    padding: 15px;
+    margin: 15px 0;
+    background-color: rgba(255,255,255,0.7);
+}
+
+/* Form Field Outline */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid orange;
+}
+
+/* Visibility Demonstration */
+.hiddenVisibility {
+    visibility: hidden;
+}
+
+/* Display Demonstration */
+.hiddenDisplay {
+    display: none;
+}
+
+/* Form Layout Improvements */
+input,
+select,
+textarea {
+    margin: 5px;
+}
+
+/* Registration Form Layout */
+.registrationForm {
+    padding: 15px;
+}
+
+
+
+/* ==========================================
+   CSS Exercise 9: Multiple Columns in Text
+   ========================================== */
+
+/* Community Bulletin Layout */
+.newsArticle {
+
+    column-count: 2;
+    column-gap: 30px;
+    column-rule: 1px solid gray;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+
+/* ==========================================
+   CSS Exercise 10: Responsive Web Design
+   ========================================== */
+
+@media screen and (max-width: 768px) {
+
+    /* Navigation Links */
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    /* Responsive Images */
+    .eventImage {
+        width: 150px;
+        height: 100px;
+    }
+
+    /* Responsive Typography */
+    h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    /* Flexible Layout */
+    section {
+        width: 95%;
+        margin: 10px auto;
+    }
+
+    /* Responsive Video */
+    #promoVideo {
+        width: 100%;
+        height: auto;
+    }
+}

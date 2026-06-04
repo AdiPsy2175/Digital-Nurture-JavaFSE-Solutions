@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Community Event Portal</title>
+
+    <!-- Google Font: Poppins -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#events">Events</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!--Welcome Banner-->
+    <div id="WelcomeBanner">
+      Welcome to the Community Event Portal!
+      <span class="specialOffer">
+        Special Offer: Free Registration for First 50 Users!
+      </span>
+    </div>
+
+    <p class="highlight">Upcoming community Festival on Sunday!</p>
+
+    <p>Register now and participate in exciting activities and workshops.</p>
+
+    <!-- Main -->
+    <section id="home">
+      <h2>Home</h2>
+    </section>
+
+    <section id="events">
+      <h2>Events</h2>
+    </section>
+
+    <section id="gallery">
+      <h2>Community Event Gallery</h2>
+
+      <table>
+        <tr>
+          <td>
+            <img
+              src="images/event1.jpg"
+              alt="Music Festival"
+              title="Music Festival"
+              class="eventImage"
+              ondblclick="enlargeImage(this)"
+            />
+            <p>Music Festival</p>
+          </td>
+
+          <td>
+            <img
+              src="images/event2.jpg"
+              alt="Sports Day"
+              title="Sports Day"
+              class="eventImage"
+            />
+            <p>Sports Day</p>
+          </td>
+
+          <td>
+            <img
+              src="images/event3.jpg"
+              alt="Food Carnival"
+              title="Food Carnival"
+              class="eventImage"
+            />
+            <p>Food Carnival</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <img
+              src="images/event4.jpg"
+              alt="Art Exhibition"
+              title="Art Exhibition"
+              class="eventImage"
+            />
+            <p>Art Exhibition</p>
+          </td>
+
+          <td>
+            <img
+              src="images/event5.jpg"
+              alt="Book Fair"
+              title="Book Fair"
+              class="eventImage"
+            />
+            <p>Book Fair</p>
+          </td>
+
+          <td>
+            <img
+              src="images/event6.jpg"
+              alt="Cultural Program"
+              title="Cultural Program"
+              class="eventImage"
+            />
+            <p>Cultural Program</p>
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <!--Registration Section-->
+    <section id="registration">
+      <h2>Event Registration</h2>
+      <form class="registrationForm" onsubmit="validateRegistrationForm(event)">
+        <label>Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your name"
+          required
+          autofocus
+        />
+        <p id="nameError"></p>
+
+        <label>Email:</label>
+
+        <input type="email" id="email" name="email" required />
+        <p id="emailError"></p>
+
+        <label>Event Date:</label>
+        <input type="date" id="eventDate" required />
+
+        <label>Event Type:</label>
+        <select
+          id="eventType"
+          name="eventType"
+          onchange="
+            showFee();
+            savePreference();
+            filterEvents();
+          "
+        >
+          <option value="">Select Event</option>
+          <option value="100">Music Festival</option>
+          <option value="150">Art Exhibition</option>
+          <option value="200">Food Fair</option>
+          <option value="250">Community Picnic</option>
+        </select>
+        <p id="feeDisplay"></p>
+
+        <label>Phone Number:</label>
+        <input type="text" id="phone" onblur="validatePhone()" />
+        <p id="phoneMessage"></p>
+
+        <label>Message:</label>
+        <textarea id="feedback" onkeyup="countCharacters()"></textarea>
+
+        <p id="charCount">Characters: 0</p>
+
+        <button type="button" id="registerBtn" onclick="submitRegistration()">
+          Register
+        </button>
+
+        <button type="button" onclick="cancelRegistration()">
+          Cancel Registration
+        </button>
+
+        <button type="button" onclick="clearPreferences()">
+          Clear Preferences
+        </button>
+
+        <output id="confirmationMessage"></output>
+      </form>
+    </section>
+
+    <!--News Section-->
+    <section id="news">
+      <h2>Community Bulletin</h2>
+
+      <div class="newsArticle">
+        <p>
+          The local community festival will be held this Sunday with cultural
+          programs, food stalls, games, and workshops for all age groups.
+          Residents are encouraged to participate and support local businesses.
+        </p>
+
+        <p>
+          The city council has also announced a cleanliness drive and tree
+          plantation campaign next month. Volunteers can register through the
+          event registration form available on this portal.
+        </p>
+
+        <p>
+          Several educational workshops on technology, health awareness, and
+          career guidance will be conducted throughout the year. Community
+          members are invited to stay updated through the bulletin section.
+        </p>
+
+        <p>
+          Local artists and performers will showcase their talents during the
+          annual cultural celebration. The event aims to strengthen community
+          engagement and encourage participation in social initiatives.
+        </p>
+
+        <p>
+          The local library will host a reading week featuring book exhibitions,
+          storytelling sessions, and educational activities for children.
+        </p>
+
+        <p>
+          Community health camps will be organized in partnership with local
+          hospitals to provide free health checkups and awareness sessions.
+        </p>
+
+        <p>
+          Residents are encouraged to participate in environmental initiatives,
+          including recycling programs and neighborhood cleanup drives.
+        </p>
+      </div>
+    </section>
+
+    <section id="dynamicEvents">
+      <h2>Dynamic Event List</h2>
+      <input
+        type="text"
+        id="searchEvent"
+        placeholder="Search Event"
+        onkeydown="searchEvents()"
+      />
+      <p id="loadingMessage"></p>
+      <div id="eventContainer"></div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+    </section>
+
+    <a href="help.html" target="_blank">Help</a>
+
+    <section id="videoInvite">
+      <h2>Event Promo Video</h2>
+
+      <video id="promoVideo" width="500" controls oncanplay="videoReady()">
+        <source src="/videos/promo.mp4" type="video/mp4" />
+
+        Your browser does not support video.
+      </video>
+
+      <p id="videoMessage"></p>
+    </section>
+
+    <section id="locationSection">
+      <h2>Find Nearby Events</h2>
+
+      <button onclick="findLocation()">Find Nearby Events</button>
+
+      <p id="location"></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>Community Event Portal</footer>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
